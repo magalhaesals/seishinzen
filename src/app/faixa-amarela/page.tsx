@@ -92,7 +92,8 @@ export default function FaixaAmarelaPage() {
               Sequências de defesa
             </h2>
             <p className="mt-1 text-sm text-slate-600">
-              Técnica em romaji, seguida da aplicação em português.
+              Ilustração passo a passo, com a lista de técnicas em romaji e
+              português.
             </p>
           </div>
           <p className="text-xs font-bold uppercase tracking-widest text-amber-700">
@@ -100,7 +101,7 @@ export default function FaixaAmarelaPage() {
           </p>
         </div>
 
-        <ol className="space-y-6">
+        <ol className="space-y-8">
           {FAIXA_AMARELA_DEFENSES.map((defense) => (
             <li
               key={defense.number}
@@ -114,6 +115,15 @@ export default function FaixaAmarelaPage() {
                 <h3 className="text-sm font-bold uppercase tracking-[0.14em]">
                   {defense.title}
                 </h3>
+              </div>
+
+              <div className="border-b border-slate-100 bg-slate-50/80 p-3 sm:p-4">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={defense.sequenceIllustration}
+                  alt={`Sequência ilustrada da ${defense.title}`}
+                  className="mx-auto h-auto w-full max-h-[420px] rounded-lg object-contain bg-white"
+                />
               </div>
 
               <ol className="divide-y divide-slate-100">
