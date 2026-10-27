@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Download } from "lucide-react";
 import {
   FAIXA_AMARELA_DEFENSES,
   FAIXA_AMARELA_PROGRAM,
@@ -46,6 +47,15 @@ export default function FaixaAmarelaPage() {
             >
               Ukemi
             </Link>
+            <a
+              href="/CINTO_AMARELO_RESUMO.pdf"
+              download="CINTO_AMARELO_RESUMO.pdf"
+              className="inline-flex items-center gap-2 rounded-lg border border-amber-300 bg-amber-50 px-3 py-2 text-amber-950 transition-colors hover:bg-amber-100"
+              title="Folha A4 com as 11 defesas"
+            >
+              <Download className="h-3.5 w-3.5" />
+              PDF 1 página
+            </a>
             <PrintButton className="inline-flex items-center gap-2 rounded-lg bg-slate-900 px-3 py-2 text-white transition-colors hover:bg-slate-800" />
           </nav>
         </div>
