@@ -67,7 +67,7 @@ export default function KataUdeUkeManualPage() {
               title="Folha A4 com as 7 defesas e ilustração principal"
             >
               <Download className="h-4 w-4" />
-              PDF 1 página
+              PDF
             </a>
             <a
               href="/KATA_UDE_UKE.pdf"
