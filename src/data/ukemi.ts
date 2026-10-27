@@ -9,7 +9,7 @@ export interface UkemiFall {
 export const UKEMI_PROGRAM = {
   title: "Ukemi",
   kanji: "受身",
-  subtitle: "As quatro quedas fundamentais do Ju-Jitsu",
+  subtitle: "As quedas fundamentais",
 } as const;
 
 export const UKEMI_FALLS: UkemiFall[] = [
