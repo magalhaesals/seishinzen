@@ -4,7 +4,7 @@ import {
   FAIXA_AMARELA_DEFENSES,
   FAIXA_AMARELA_PROGRAM,
 } from "@/data/faixaAmarela";
-import { PrintButton } from "./PrintButton";
+import { PrintButton } from "@/components/PrintButton";
 
 export const metadata: Metadata = {
   title: "Programa Técnico — Cinto Amarelo (Ju-Jitsu)",
@@ -39,6 +39,12 @@ export default function FaixaAmarelaPage() {
               className="rounded-lg border border-slate-300 bg-white px-3 py-2 text-slate-800 transition-colors hover:bg-slate-50"
             >
               Kata Ude Uke
+            </Link>
+            <Link
+              href="/ukemi"
+              className="rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-red-800 transition-colors hover:bg-red-100"
+            >
+              Ukemi
             </Link>
             <PrintButton className="inline-flex items-center gap-2 rounded-lg bg-slate-900 px-3 py-2 text-white transition-colors hover:bg-slate-800" />
           </nav>
