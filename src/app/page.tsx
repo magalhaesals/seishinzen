@@ -165,16 +165,6 @@ export default function KataUdeUkeManualPage() {
                 </div>
               </div>
 
-              <div className="flex items-center gap-2">
-                {group.wasMissingInOriginalDoc && (
-                  <span className="rounded-full bg-amber-400/20 border border-amber-400/40 px-3 py-1 text-xs font-bold text-amber-300">
-                    Ilustração Inédita (Faltava no Original)
-                  </span>
-                )}
-                <span className="rounded-full bg-slate-800 border border-slate-700 px-3 py-1 text-xs font-semibold text-slate-200">
-                  {group.levelBadge}
-                </span>
-              </div>
             </div>
 
             <div className="p-6 lg:p-8 space-y-8">
