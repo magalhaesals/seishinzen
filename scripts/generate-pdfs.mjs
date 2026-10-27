@@ -13,9 +13,35 @@
  * Default baseUrl: http://127.0.0.1:43123
  */
 import { spawn } from "node:child_process";
-import { existsSync, mkdirSync, rmSync, statSync } from "node:fs";
+import {
+  existsSync,
+  mkdirSync,
+  readFileSync,
+  rmSync,
+  statSync,
+} from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+
+/** Reject empty/HTML 404 stubs that look like failed downloads (~9KB). */
+function assertValidPdf(filePath, minBytes = 50_000) {
+  if (!existsSync(filePath)) {
+    throw new Error(`PDF missing: ${filePath}`);
+  }
+  const size = statSync(filePath).size;
+  const head = readFileSync(filePath).subarray(0, 8);
+  const magic = head.toString("utf8");
+  if (!magic.startsWith("%PDF-")) {
+    throw new Error(
+      `Invalid PDF at ${filePath}: expected %PDF- header, got ${JSON.stringify(magic)} (${size} bytes)`
+    );
+  }
+  if (size < minBytes) {
+    throw new Error(
+      `PDF too small at ${filePath}: ${size} bytes (min ${minBytes}). Likely a failed print or HTML error page.`
+    );
+  }
+}
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
@@ -179,6 +205,7 @@ function printToPdf({ url, out, budgetMs, timeoutMs }) {
 
 for (const job of jobs) {
   await printToPdf(job);
+  assertValidPdf(job.out);
 }
 
 console.log("Done.");
