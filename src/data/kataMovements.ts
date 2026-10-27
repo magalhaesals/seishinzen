@@ -22,7 +22,8 @@ export interface KataTechniqueGroup {
   wasMissingInOriginalDoc: boolean;
   originalIssueNote: string;
   mainIllustration: string;
-  sequenceIllustration: string;
+  /** Omit to hide the step-by-step biomechanical sequence card. */
+  sequenceIllustration?: string;
   originalMediaFiles: string[];
   /** When true, show one technique illustration only (no left/right pair). */
   singleIllustration?: boolean;
@@ -326,7 +327,6 @@ export const KATA_UDE_UKE_GROUPS: KataTechniqueGroup[] = [
     originalIssueNote:
       "",
     mainIllustration: "/illustrations/09_10_mae_ude_uke.jpg",
-    sequenceIllustration: "/illustrations/seq_mae_ude_uke.jpg",
     originalMediaFiles: [],
     movements: [
       {
@@ -395,7 +395,6 @@ export const KATA_UDE_UKE_GROUPS: KataTechniqueGroup[] = [
     originalIssueNote:
       "",
     mainIllustration: "/illustrations/11_12_mawashi_ude_uke.jpg",
-    sequenceIllustration: "/illustrations/seq_mawashi_ude_uke.jpg",
     originalMediaFiles: [],
     movements: [
       {

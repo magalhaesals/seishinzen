@@ -162,8 +162,12 @@ export default function KataUdeUkeManualPage() {
             </div>
 
             <div className="p-6 lg:p-8 space-y-8">
-              {/* Primary Redesigned Illustrations Grid (Main Dual Panel + Step-by-step Strip) */}
-              <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+              {/* Primary Redesigned Illustrations Grid (Main Dual Panel + optional Step-by-step Strip) */}
+              <div
+                className={`grid grid-cols-1 gap-6 ${
+                  group.sequenceIllustration ? "lg:grid-cols-2" : ""
+                }`}
+              >
                 {/* Main Left/Right Illustration Card */}
                 <div className="group flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-slate-50/60">
                   <div className="flex items-center justify-between border-b border-slate-200 bg-white px-4 py-2.5">
@@ -224,50 +228,52 @@ export default function KataUdeUkeManualPage() {
                 </div>
 
                 {/* Step-by-Step Progression Strip Card */}
-                <div className="group flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-slate-50/60">
-                  <div className="flex items-center justify-between border-b border-slate-200 bg-white px-4 py-2.5">
-                    <div className="flex items-center gap-2">
-                      <Layers className="h-4 w-4 text-red-700" />
-                      <span className="text-xs font-bold uppercase tracking-wider text-slate-800">
-                        Sequência Biomecânica Passo a Passo ({group.romaji})
-                      </span>
+                {group.sequenceIllustration ? (
+                  <div className="group flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-slate-50/60">
+                    <div className="flex items-center justify-between border-b border-slate-200 bg-white px-4 py-2.5">
+                      <div className="flex items-center gap-2">
+                        <Layers className="h-4 w-4 text-red-700" />
+                        <span className="text-xs font-bold uppercase tracking-wider text-slate-800">
+                          Sequência Biomecânica Passo a Passo ({group.romaji})
+                        </span>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setLightboxImage({
+                            src: group.sequenceIllustration!,
+                            caption: `Sequência Passo a Passo — ${group.groupTitle}`,
+                          })
+                        }
+                        className="inline-flex items-center gap-1 rounded-md px-2 py-1 text-xs font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-900 print:hidden"
+                      >
+                        <Maximize2 className="h-3.5 w-3.5" />
+                        Ampliar
+                      </button>
                     </div>
-                    <button
-                      type="button"
+
+                    <div
                       onClick={() =>
                         setLightboxImage({
-                          src: group.sequenceIllustration,
+                          src: group.sequenceIllustration!,
                           caption: `Sequência Passo a Passo — ${group.groupTitle}`,
                         })
                       }
-                      className="inline-flex items-center gap-1 rounded-md px-2 py-1 text-xs font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-900 print:hidden"
+                      className="relative flex flex-1 cursor-zoom-in items-center justify-center bg-white p-3"
                     >
-                      <Maximize2 className="h-3.5 w-3.5" />
-                      Ampliar
-                    </button>
-                  </div>
+                      <img
+                        src={group.sequenceIllustration}
+                        alt={`Sequência passo a passo de ${group.groupTitle}`}
+                        className="max-h-[340px] w-full rounded-lg object-contain transition-transform duration-200 group-hover:scale-[1.01]"
+                      />
+                    </div>
 
-                  <div
-                    onClick={() =>
-                      setLightboxImage({
-                        src: group.sequenceIllustration,
-                        caption: `Sequência Passo a Passo — ${group.groupTitle}`,
-                      })
-                    }
-                    className="relative flex flex-1 cursor-zoom-in items-center justify-center bg-white p-3"
-                  >
-                    <img
-                      src={group.sequenceIllustration}
-                      alt={`Sequência passo a passo de ${group.groupTitle}`}
-                      className="max-h-[340px] w-full rounded-lg object-contain transition-transform duration-200 group-hover:scale-[1.01]"
-                    />
+                    <div className="border-t border-slate-200 bg-slate-50 px-4 py-2 text-xs text-slate-600">
+                      Progressão contínua desde a preparação (Kamae), cruzamento
+                      e rotação até ao Kime final.
+                    </div>
                   </div>
-
-                  <div className="border-t border-slate-200 bg-slate-50 px-4 py-2 text-xs text-slate-600">
-                    Progressão contínua desde a preparação (Kamae), cruzamento e
-                    rotação até ao Kime final.
-                  </div>
-                </div>
+                ) : null}
               </div>
 
               {/* Individual Movement Cards + Interactive Vector Diagrams */}
