@@ -8,8 +8,6 @@ export interface FaixaAmarelaTechnique {
 export interface FaixaAmarelaDefense {
   number: number;
   title: string;
-  /** Step-by-step sequence plate for this defense. */
-  sequenceIllustration: string;
   techniques: FaixaAmarelaTechnique[];
 }
 
@@ -24,7 +22,6 @@ export const FAIXA_AMARELA_DEFENSES: FaixaAmarelaDefense[] = [
   {
     number: 1,
     title: "1ª Defesa",
-    sequenceIllustration: "/illustrations/cinto-amarelo/defesa_01_seq.jpg",
     techniques: [
       {
         romaji: "TETTSUI TSUKI",
@@ -48,7 +45,6 @@ export const FAIXA_AMARELA_DEFENSES: FaixaAmarelaDefense[] = [
   {
     number: 2,
     title: "2ª Defesa",
-    sequenceIllustration: "/illustrations/cinto-amarelo/defesa_02_seq.jpg",
     techniques: [
       {
         romaji: "MIGI MAWASHI GERI CHUDAN",
@@ -63,7 +59,6 @@ export const FAIXA_AMARELA_DEFENSES: FaixaAmarelaDefense[] = [
   {
     number: 3,
     title: "3ª Defesa",
-    sequenceIllustration: "/illustrations/cinto-amarelo/defesa_03_seq.jpg",
     techniques: [
       {
         romaji: "MIGI USHIRO HIGI ATE",
@@ -86,7 +81,6 @@ export const FAIXA_AMARELA_DEFENSES: FaixaAmarelaDefense[] = [
   {
     number: 4,
     title: "4ª Defesa",
-    sequenceIllustration: "/illustrations/cinto-amarelo/defesa_04_seq.jpg",
     techniques: [
       {
         romaji: "MIGI USHIRO HIGI ATE",
@@ -117,7 +111,6 @@ export const FAIXA_AMARELA_DEFENSES: FaixaAmarelaDefense[] = [
   {
     number: 5,
     title: "5ª Defesa",
-    sequenceIllustration: "/illustrations/cinto-amarelo/defesa_05_seq.jpg",
     techniques: [
       {
         romaji: "TAI SABAKI",
@@ -146,7 +139,6 @@ export const FAIXA_AMARELA_DEFENSES: FaixaAmarelaDefense[] = [
   {
     number: 6,
     title: "6ª Defesa",
-    sequenceIllustration: "/illustrations/cinto-amarelo/defesa_06_seq.jpg",
     techniques: [
       {
         romaji: "HIDARI NAGASHI UKE",
@@ -171,7 +163,6 @@ export const FAIXA_AMARELA_DEFENSES: FaixaAmarelaDefense[] = [
   {
     number: 7,
     title: "7ª Defesa",
-    sequenceIllustration: "/illustrations/cinto-amarelo/defesa_07_seq.jpg",
     techniques: [
       {
         romaji: "HIDARI MAE UDE UKE",
@@ -198,7 +189,6 @@ export const FAIXA_AMARELA_DEFENSES: FaixaAmarelaDefense[] = [
   {
     number: 8,
     title: "8ª Defesa",
-    sequenceIllustration: "/illustrations/cinto-amarelo/defesa_08_seq.jpg",
     techniques: [
       {
         romaji: "MAWASHI MOROTE UKE",
@@ -227,7 +217,6 @@ export const FAIXA_AMARELA_DEFENSES: FaixaAmarelaDefense[] = [
   {
     number: 9,
     title: "9ª Defesa",
-    sequenceIllustration: "/illustrations/cinto-amarelo/defesa_09_seq.jpg",
     techniques: [
       {
         romaji: "HIDARI MAE UDE UKE",
@@ -254,7 +243,6 @@ export const FAIXA_AMARELA_DEFENSES: FaixaAmarelaDefense[] = [
   {
     number: 10,
     title: "10ª Defesa",
-    sequenceIllustration: "/illustrations/cinto-amarelo/defesa_10_seq.jpg",
     techniques: [
       {
         romaji: "HIDARI MAE UDE UKE",
@@ -285,7 +273,6 @@ export const FAIXA_AMARELA_DEFENSES: FaixaAmarelaDefense[] = [
   {
     number: 11,
     title: "11ª Defesa",
-    sequenceIllustration: "/illustrations/cinto-amarelo/defesa_11_seq.jpg",
     techniques: [
       {
         romaji: "HIDARI AGE UKE",
