@@ -6,9 +6,9 @@ import {
 } from "@/data/faixaAmarela";
 
 export const metadata: Metadata = {
-  title: "Programa Técnico — Faixa Amarela (Ju-Jitsu)",
+  title: "Programa Técnico — Cinto Amarelo (Ju-Jitsu)",
   description:
-    "As 11 defesas do programa técnico de Faixa Amarela em Ju-Jitsu, com sequência de técnicas e retorno a Kamae.",
+    "As 11 defesas do programa técnico de Cinto Amarelo em Ju-Jitsu, com sequência de técnicas e retorno a Kamae.",
 };
 
 export default function FaixaAmarelaPage() {
@@ -160,7 +160,7 @@ export default function FaixaAmarelaPage() {
       </main>
 
       <footer className="border-t border-slate-200 px-4 py-8 text-center text-xs text-slate-500 sm:px-6">
-        Seishinzen · Programa Técnico · Faixa Amarela · Ju-Jitsu
+        Seishinzen · Programa Técnico · Cinto Amarelo · Ju-Jitsu
       </footer>
     </div>
   );

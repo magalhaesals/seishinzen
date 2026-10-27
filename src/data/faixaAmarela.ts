@@ -12,10 +12,10 @@ export interface FaixaAmarelaDefense {
 }
 
 export const FAIXA_AMARELA_PROGRAM = {
-  belt: "Faixa Amarela",
+  belt: "Cinto Amarelo",
   art: "Ju-Jitsu",
   title: "Programa Técnico",
-  subtitle: "11 defesas do exame de Faixa Amarela",
+  subtitle: "11 defesas do exame de Cinto Amarelo",
 } as const;
 
 export const FAIXA_AMARELA_DEFENSES: FaixaAmarelaDefense[] = [
