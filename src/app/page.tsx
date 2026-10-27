@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { KATA_UDE_UKE_GROUPS, KataTechniqueGroup } from "@/data/kataMovements";
 import {
   Download,
-  CheckCircle2,
   BookOpen,
   Layers,
   Compass,
@@ -345,13 +344,6 @@ export default function KataUdeUkeManualPage() {
                         </div>
                       </dl>
                     </div>
-
-                    <div className="mt-4">
-                      <VectorBiomechanicsDiagram
-                        techniqueId={group.id}
-                        movementNumber={mov.number}
-                      />
-                    </div>
                   </div>
                 ))}
               </div>
@@ -405,65 +397,6 @@ export default function KataUdeUkeManualPage() {
           </article>
         ))}
       </main>
-
-      {/* Complete Reference Table of All 14 Movements */}
-      <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
-        <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xs">
-          <div className="border-b border-slate-200 bg-slate-900 px-6 py-4 text-white">
-            <h3 className="text-lg font-bold">
-              Quadro Sinóptico dos 14 Movimentos — Kata Ude Uke
-            </h3>
-            <p className="text-xs text-slate-300">
-              Referência rápida da ordem oficial do manual com nomenclatura
-              corrigida e padronizada
-            </p>
-          </div>
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs">
-              <thead className="border-b border-slate-200 bg-slate-100 text-slate-700 uppercase">
-                <tr>
-                  <th className="px-4 py-3 font-bold">Nº</th>
-                  <th className="px-4 py-3 font-bold">Movimento no Kata</th>
-                  <th className="px-4 py-3 font-bold">Lado / Base</th>
-                  <th className="px-4 py-3 font-bold">Nível</th>
-                  <th className="px-4 py-3 font-bold">Estado da Ilustração</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-200">
-                {KATA_UDE_UKE_GROUPS.flatMap((g) =>
-                  g.movements.map((m) => ({ group: g, mov: m }))
-                ).map(({ group, mov }) => (
-                  <tr key={mov.number} className="hover:bg-slate-50">
-                    <td className="px-4 py-3 font-black text-slate-900">
-                      {mov.number}
-                    </td>
-                    <td className="px-4 py-3 font-bold text-slate-900">
-                      {mov.name}{" "}
-                      <span className="font-normal text-slate-500">
-                        ({group.kanji})
-                      </span>
-                    </td>
-                    <td className="px-4 py-3 text-slate-700">{mov.stance}</td>
-                    <td className="px-4 py-3">
-                      <span className="rounded-md bg-slate-100 px-2 py-0.5 font-semibold text-slate-800">
-                        {mov.level}
-                      </span>
-                    </td>
-                    <td className="px-4 py-3">
-                      <span className="inline-flex items-center gap-1 font-semibold text-emerald-700">
-                        <CheckCircle2 className="h-3.5 w-3.5" />
-                        {group.wasMissingInOriginalDoc
-                          ? "Criada de Raiz + Sequência"
-                          : "Refeita & Padronizada"}
-                      </span>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
 
       {/* Lightbox Modal for High-Resolution Inspection */}
       {lightboxImage && (
