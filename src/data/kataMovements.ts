@@ -42,12 +42,12 @@ export const KATA_UDE_UKE_GROUPS: KataTechniqueGroup[] = [
     movementRange: "Movimentos 1 e 2",
     romaji: "Age-Uke",
     kanji: "揚げ受け",
-    translationPt: "Defesa Ascendente com o Antebraço (Nível Alto)",
+    translationPt: "Defesa Ascendente com o Antebraço",
     levelBadge: "Jodan (Alto)",
     wasMissingInOriginalDoc: false,
     singleIllustration: true,
     originalIssueNote:
-      "Ilustração única do Age-Uke, alinhada à referência correcta: punho FECHADO, antebraço à frente da testa sem cobrir os olhos. (Movimentos 1 e 2 do kata são o mesmo movimento nos dois lados.)",
+      "Ilustração Age-Uke, alinhada à referência correcta: punho FECHADO, antebraço à frente da testa sem cobrir os olhos.",
     mainIllustration: "/illustrations/01_02_age_uke.jpg",
     sequenceIllustration: "/illustrations/seq_age_uke.jpg",
     originalMediaFiles: [
@@ -113,7 +113,7 @@ export const KATA_UDE_UKE_GROUPS: KataTechniqueGroup[] = [
     movementRange: "Movimentos 3 e 4",
     romaji: "Gedan Barai Uke",
     kanji: "下段払い受け",
-    translationPt: "Defesa Descendente Varrendo com o Antebraço (Nível Baixo)",
+    translationPt: "Defesa Descendente Varrendo com o Antebraço",
     levelBadge: "Gedan (Baixo)",
     wasMissingInOriginalDoc: false,
     originalIssueNote:
@@ -182,7 +182,7 @@ export const KATA_UDE_UKE_GROUPS: KataTechniqueGroup[] = [
     movementRange: "Movimentos 5 e 6",
     romaji: "Soto-Ude-Uke",
     kanji: "外腕受け",
-    translationPt: "Defesa de Fora para Dentro com o Antebraço (Nível Médio)",
+    translationPt: "Defesa de Fora para Dentro com o Antebraço",
     levelBadge: "Chudan (Médio)",
     wasMissingInOriginalDoc: false,
     originalIssueNote:
@@ -251,7 +251,7 @@ export const KATA_UDE_UKE_GROUPS: KataTechniqueGroup[] = [
     movementRange: "Movimentos 7 e 8",
     romaji: "Uchi-Ude-Uke",
     kanji: "内腕受け",
-    translationPt: "Defesa de Dentro para Fora com o Antebraço (Nível Médio)",
+    translationPt: "Defesa de Dentro para Fora com o Antebraço",
     levelBadge: "Chudan (Médio)",
     wasMissingInOriginalDoc: false,
     originalIssueNote:
@@ -320,11 +320,11 @@ export const KATA_UDE_UKE_GROUPS: KataTechniqueGroup[] = [
     movementRange: "Movimentos 9 e 10",
     romaji: "Mae-Ude-Uke",
     kanji: "前腕受け",
-    translationPt: "Defesa Frontal Direta com o Antebraço (Linha Central)",
+    translationPt: "Defesa Frontal Direta com o Antebraço",
     levelBadge: "Chudan Frontal",
     wasMissingInOriginalDoc: true,
     originalIssueNote:
-      "EM FALTA NO ORIGINAL: Os movimentos 9 e 10 (MAE-UDE-UKE) estavam listados no texto do DOCX original mas não tinham nenhuma ilustração. Foram integralmente desenhados e adicionados!",
+      "",
     mainIllustration: "/illustrations/09_10_mae_ude_uke.jpg",
     sequenceIllustration: "/illustrations/seq_mae_ude_uke.jpg",
     originalMediaFiles: [],
