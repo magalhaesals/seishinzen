@@ -1,0 +1,242 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* —— Resumo 1-página (A4) —— */
+.resumo-sheet-wrap {
+  background: #e2e8f0;
+}
+
+.resumo-sheet {
+  width: 210mm;
+  height: 297mm;
+  min-height: 297mm;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 3mm 3.5mm 2.5mm;
+  background: #ffffff;
+  color: #0f172a;
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5mm;
+  overflow: hidden;
+}
+
+.resumo-title {
+  display: flex;
+  align-items: center;
+  gap: 2mm;
+  border-bottom: 1pt solid #0f172a;
+  padding-bottom: 1.2mm;
+  flex-shrink: 0;
+}
+
+.resumo-title-mark {
+  flex-shrink: 0;
+  width: 7.5mm;
+  height: 7.5mm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #b91c1c;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 4.2mm;
+  border-radius: 1mm;
+}
+
+.resumo-title-text {
+  min-width: 0;
+}
+
+.resumo-eyebrow {
+  margin: 0;
+  font-size: 2.4mm;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #b91c1c;
+}
+
+.resumo-title h1 {
+  margin: 0.3mm 0 0;
+  font-size: 5mm;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: #0f172a;
+}
+
+.resumo-kanji {
+  font-weight: 500;
+  color: #64748b;
+  font-size: 0.72em;
+}
+
+.resumo-subtitle {
+  margin: 0.4mm 0 0;
+  font-size: 2.4mm;
+  color: #475569;
+}
+
+/* 12-col grid: top row 4×span3, bottom row 3×span4 (centered) */
+.resumo-grid {
+  flex: 1 1 auto;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 1fr 1fr;
+  gap: 1.5mm;
+  min-height: 0;
+  align-content: stretch;
+}
+
+.resumo-cell {
+  grid-column: span 3;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  border: 0.4pt solid #cbd5e1;
+  border-radius: 1mm;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.resumo-cell:nth-child(n + 5) {
+  grid-column: span 4;
+}
+
+.resumo-caption {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: baseline;
+  gap: 1mm 1.4mm;
+  padding: 0.9mm 1.4mm;
+  background: #0f172a;
+  color: #ffffff;
+  line-height: 1.1;
+  flex-shrink: 0;
+}
+
+.resumo-range {
+  font-size: 2mm;
+  font-weight: 800;
+  color: #fca5a5;
+  letter-spacing: 0.02em;
+  flex-shrink: 0;
+}
+
+.resumo-romaji {
+  font-size: 2.5mm;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  flex-shrink: 0;
+}
+
+.resumo-pt {
+  font-size: 2mm;
+  font-weight: 500;
+  color: #cbd5e1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+.resumo-img-wrap {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6mm;
+  background: #f8fafc;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.resumo-img {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.resumo-footer {
+  flex-shrink: 0;
+  margin-top: 0;
+  padding-top: 0.8mm;
+  border-top: 0.4pt solid #cbd5e1;
+  font-size: 1.8mm;
+  color: #64748b;
+  text-align: center;
+}
+
+/* Print / Save as PDF — full manual (default) */
+@media print {
+  @page {
+    size: A4;
+    margin: 12mm;
+  }
+
+  html,
+  body {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .print\:hidden,
+  button,
+  [role="dialog"] {
+    display: none !important;
+  }
+
+  a {
+    text-decoration: none !important;
+    color: inherit !important;
+  }
+
+  img {
+    max-width: 100% !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  article,
+  section,
+  .print\:break-inside-avoid {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  * {
+    box-shadow: none !important;
+  }
+}
+
