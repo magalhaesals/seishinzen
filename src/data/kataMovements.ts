@@ -337,10 +337,10 @@ export const KATA_UDE_UKE_GROUPS: KataTechniqueGroup[] = [
         sideCode: "hidari",
         stance: "Hidari Zenkutsu-Dachi (Base avançada esquerda)",
         level: "Chudan",
-        trajectory: "Projeção frontal direta na linha média do tórax",
+        trajectory: "Defesa de um ataque MAWASHI-ZUKI (soco circular)",
         contactSurface: "Estrutura frontal do antebraço esquerdo",
         summary:
-          "O antebraço esquerdo avança diretamente na linha central (Mae) formando uma barreira vertical sólida diante do peito para interceptar o ataque de frente.",
+          "O antebraço esquerdo avança diretamente na curva interna do cotovelo do oponente para interceptar o ataque de frente.",
       },
       {
         number: 10,
@@ -350,10 +350,10 @@ export const KATA_UDE_UKE_GROUPS: KataTechniqueGroup[] = [
         sideCode: "migi",
         stance: "Migi Zenkutsu-Dachi (Base avançada direita)",
         level: "Chudan",
-        trajectory: "Projeção frontal direta na linha média do tórax",
+        trajectory: "Defesa de um ataque MAWASHI-ZUKI (soco circular)",
         contactSurface: "Estrutura frontal do antebraço direito",
         summary:
-          "O antebraço direito projeta-se diretamente para a frente protegendo o eixo central com o cotovelo fletido a 90° e punho esquerdo recolhido no quadril.",
+          "O antebraço direito avança diretamente na curva interna do cotovelo do oponente para interceptar o ataque de frente.",
       },
     ],
     steps: [
@@ -365,7 +365,7 @@ export const KATA_UDE_UKE_GROUPS: KataTechniqueGroup[] = [
       {
         stepNumber: 2,
         phaseTitle: "Alinhamento do Antebraço",
-        detail: "O antebraço defensor alinha-se verticalmente no centro do tronco.",
+        detail: "O antebraço defensor alinha-se verticalmente",
       },
       {
         stepNumber: 3,
@@ -375,11 +375,11 @@ export const KATA_UDE_UKE_GROUPS: KataTechniqueGroup[] = [
       {
         stepNumber: 4,
         phaseTitle: "Bloqueio Sólido no Centro",
-        detail: "Antebraço estabilizado na linha média com tração simultânea do hikite.",
+        detail: "Antebraço bloqueia na curva interna do cotovelo do oponente",
       },
     ],
     biomechanicsKeyPoints: [
-      "A força é projetada para a frente a partir da conexão entre a perna de trás, o quadril e a escápula.",
+      "A força é projetada para a frente na curva interna do cotovelo do oponente a partir da conexão entre a perna de trás, o quadril e a escápula.",
       "Impede que o ataque do adversário ganhe velocidade ao interceptá-lo na origem.",
     ],
   },
