@@ -47,4 +47,29 @@
     max-height: 100% !important;
     object-fit: contain !important;
   }
+
+  /* Keep title bar black with white type in Chromium print */
+  .resumo-title {
+    background: #0f172a !important;
+    color: #ffffff !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .resumo-title h1,
+  .resumo-title h1 * {
+    color: #ffffff !important;
+  }
+
+  .resumo-kanji {
+    color: #cbd5e1 !important;
+  }
+
+  .resumo-eyebrow {
+    color: #fca5a5 !important;
+  }
+
+  .resumo-subtitle {
+    color: #cbd5e1 !important;
+  }
 }

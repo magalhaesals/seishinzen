@@ -50,9 +50,14 @@ body {
   display: flex;
   align-items: center;
   gap: 2mm;
-  border-bottom: 1pt solid #0f172a;
-  padding-bottom: 1.2mm;
+  margin: -3mm -3.5mm 0;
+  padding: 2mm 3.5mm;
+  background: #0f172a;
+  color: #ffffff;
+  border-bottom: none;
   flex-shrink: 0;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
 }
 
 .resumo-title-mark {
@@ -79,7 +84,7 @@ body {
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #b91c1c;
+  color: #fca5a5;
 }
 
 .resumo-title h1 {
@@ -88,19 +93,19 @@ body {
   font-weight: 900;
   letter-spacing: -0.02em;
   line-height: 1.05;
-  color: #0f172a;
+  color: #ffffff;
 }
 
 .resumo-kanji {
   font-weight: 500;
-  color: #64748b;
+  color: #cbd5e1;
   font-size: 0.72em;
 }
 
 .resumo-subtitle {
   margin: 0.4mm 0 0;
   font-size: 2.4mm;
-  color: #475569;
+  color: #cbd5e1;
 }
 
 /* Landscape: single row of 7 equal cells */
