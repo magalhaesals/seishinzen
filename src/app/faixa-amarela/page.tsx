@@ -69,9 +69,7 @@ export default function FaixaAmarelaPage() {
             </span>
           </h1>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg print:text-slate-600">
-            {FAIXA_AMARELA_PROGRAM.subtitle}. Cada defesa termina em{" "}
-            <strong className="text-white print:text-slate-900">Kamae</strong> —
-            retorno à posição de guarda.
+            {FAIXA_AMARELA_PROGRAM.subtitle}.
           </p>
           <div className="mt-8 flex flex-wrap gap-3 text-sm font-semibold print:hidden">
             <a
