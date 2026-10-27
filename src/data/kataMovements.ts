@@ -38,16 +38,16 @@ export interface KataTechniqueGroup {
 export const KATA_UDE_UKE_GROUPS: KataTechniqueGroup[] = [
   {
     id: "age-uke",
-    groupTitle: "1 & 2. AGE-UKE",
+    groupTitle: "AGE-UKE",
     movementRange: "Movimentos 1 e 2",
     romaji: "Age-Uke",
     kanji: "揚げ受け",
-    translationPt: "Defesa Ascendente com o Antebraço (Nível Alto)",
+    translationPt: "Defesa Ascendente com o Antebraço",
     levelBadge: "Jodan (Alto)",
     wasMissingInOriginalDoc: false,
     singleIllustration: true,
     originalIssueNote:
-      "Ilustração única do Age-Uke, alinhada à referência correcta: punho FECHADO, antebraço à frente da testa sem cobrir os olhos. (Movimentos 1 e 2 do kata são o mesmo movimento nos dois lados.)",
+      "Ilustração Age-Uke, alinhada à referência correcta: punho FECHADO, antebraço à frente da testa sem cobrir os olhos.",
     mainIllustration: "/illustrations/01_02_age_uke.jpg",
     sequenceIllustration: "/illustrations/seq_age_uke.jpg",
     originalMediaFiles: [
@@ -109,11 +109,11 @@ export const KATA_UDE_UKE_GROUPS: KataTechniqueGroup[] = [
   },
   {
     id: "gedan-barai-uke",
-    groupTitle: "3 & 4. GEDAN BARAI UKE",
+    groupTitle: "GEDAN BARAI UKE",
     movementRange: "Movimentos 3 e 4",
     romaji: "Gedan Barai Uke",
     kanji: "下段払い受け",
-    translationPt: "Defesa Descendente Varrendo com o Antebraço (Nível Baixo)",
+    translationPt: "Defesa Descendente Varrendo com o Antebraço",
     levelBadge: "Gedan (Baixo)",
     wasMissingInOriginalDoc: false,
     originalIssueNote:
@@ -178,15 +178,15 @@ export const KATA_UDE_UKE_GROUPS: KataTechniqueGroup[] = [
   },
   {
     id: "soto-ude-uke",
-    groupTitle: "5 & 6. SOTO-UDE-UKE",
+    groupTitle: "SOTO-UDE-UKE",
     movementRange: "Movimentos 5 e 6",
     romaji: "Soto-Ude-Uke",
     kanji: "外腕受け",
-    translationPt: "Defesa de Fora para Dentro com o Antebraço (Nível Médio)",
+    translationPt: "Defesa de Fora para Dentro com o Antebraço",
     levelBadge: "Chudan (Médio)",
     wasMissingInOriginalDoc: false,
     originalIssueNote:
-      "O documento original usava um GIF verde néon com fundo preto e um desenho de baixa resolução. Substituído por ilustrações técnicas limpas em fundo branco com setas vetoriais vermelhas.",
+      "O documento original usava um GIF verde néon com fundo preto e um desenho de baixa resolução. Substituído por prancha bilateral e sequência no mesmo estilo realista (gi branco, setas vermelhas) das restantes técnicas — a versão esquemática/mannequin anterior estava fora do padrão.",
     mainIllustration: "/illustrations/05_06_soto_ude_uke.jpg",
     sequenceIllustration: "/illustrations/seq_soto_ude_uke.jpg",
     originalMediaFiles: ["/original-media/image5.gif", "/original-media/image6.gif"],
@@ -247,11 +247,11 @@ export const KATA_UDE_UKE_GROUPS: KataTechniqueGroup[] = [
   },
   {
     id: "uchi-ude-uke",
-    groupTitle: "7 & 8. UCHI-UDE-UKE",
+    groupTitle: "UCHI-UDE-UKE",
     movementRange: "Movimentos 7 e 8",
     romaji: "Uchi-Ude-Uke",
     kanji: "内腕受け",
-    translationPt: "Defesa de Dentro para Fora com o Antebraço (Nível Médio)",
+    translationPt: "Defesa de Dentro para Fora com o Antebraço",
     levelBadge: "Chudan (Médio)",
     wasMissingInOriginalDoc: false,
     originalIssueNote:
@@ -316,15 +316,15 @@ export const KATA_UDE_UKE_GROUPS: KataTechniqueGroup[] = [
   },
   {
     id: "mae-ude-uke",
-    groupTitle: "9 & 10. MAE-UDE-UKE",
+    groupTitle: "MAE-UDE-UKE",
     movementRange: "Movimentos 9 e 10",
     romaji: "Mae-Ude-Uke",
     kanji: "前腕受け",
-    translationPt: "Defesa Frontal Direta com o Antebraço (Linha Central)",
+    translationPt: "Defesa Frontal Direta com o Antebraço",
     levelBadge: "Chudan Frontal",
     wasMissingInOriginalDoc: true,
     originalIssueNote:
-      "EM FALTA NO ORIGINAL: Os movimentos 9 e 10 (MAE-UDE-UKE) estavam listados no texto do DOCX original mas não tinham nenhuma ilustração. Foram integralmente desenhados e adicionados!",
+      "",
     mainIllustration: "/illustrations/09_10_mae_ude_uke.jpg",
     sequenceIllustration: "/illustrations/seq_mae_ude_uke.jpg",
     originalMediaFiles: [],
@@ -337,10 +337,10 @@ export const KATA_UDE_UKE_GROUPS: KataTechniqueGroup[] = [
         sideCode: "hidari",
         stance: "Hidari Zenkutsu-Dachi (Base avançada esquerda)",
         level: "Chudan",
-        trajectory: "Projeção frontal direta na linha média do tórax",
+        trajectory: "Defesa de um ataque MAWASHI-ZUKI (soco circular)",
         contactSurface: "Estrutura frontal do antebraço esquerdo",
         summary:
-          "O antebraço esquerdo avança diretamente na linha central (Mae) formando uma barreira vertical sólida diante do peito para interceptar o ataque de frente.",
+          "O antebraço esquerdo avança diretamente na curva interna do cotovelo do oponente para interceptar o ataque de frente.",
       },
       {
         number: 10,
@@ -350,10 +350,10 @@ export const KATA_UDE_UKE_GROUPS: KataTechniqueGroup[] = [
         sideCode: "migi",
         stance: "Migi Zenkutsu-Dachi (Base avançada direita)",
         level: "Chudan",
-        trajectory: "Projeção frontal direta na linha média do tórax",
+        trajectory: "Defesa de um ataque MAWASHI-ZUKI (soco circular)",
         contactSurface: "Estrutura frontal do antebraço direito",
         summary:
-          "O antebraço direito projeta-se diretamente para a frente protegendo o eixo central com o cotovelo fletido a 90° e punho esquerdo recolhido no quadril.",
+          "O antebraço direito avança diretamente na curva interna do cotovelo do oponente para interceptar o ataque de frente.",
       },
     ],
     steps: [
@@ -365,7 +365,7 @@ export const KATA_UDE_UKE_GROUPS: KataTechniqueGroup[] = [
       {
         stepNumber: 2,
         phaseTitle: "Alinhamento do Antebraço",
-        detail: "O antebraço defensor alinha-se verticalmente no centro do tronco.",
+        detail: "O antebraço defensor alinha-se verticalmente",
       },
       {
         stepNumber: 3,
@@ -375,17 +375,17 @@ export const KATA_UDE_UKE_GROUPS: KataTechniqueGroup[] = [
       {
         stepNumber: 4,
         phaseTitle: "Bloqueio Sólido no Centro",
-        detail: "Antebraço estabilizado na linha média com tração simultânea do hikite.",
+        detail: "Antebraço bloqueia na curva interna do cotovelo do oponente",
       },
     ],
     biomechanicsKeyPoints: [
-      "A força é projetada para a frente a partir da conexão entre a perna de trás, o quadril e a escápula.",
+      "A força é projetada para a frente na curva interna do cotovelo do oponente a partir da conexão entre a perna de trás, o quadril e a escápula.",
       "Impede que o ataque do adversário ganhe velocidade ao interceptá-lo na origem.",
     ],
   },
   {
     id: "mawashi-ude-uke",
-    groupTitle: "11 & 12. MAWASHI-UDE-UKE",
+    groupTitle: "MAWASHI-UDE-UKE",
     movementRange: "Movimentos 11 e 12",
     romaji: "Mawashi-Ude-Uke",
     kanji: "回し腕受け",
@@ -393,7 +393,7 @@ export const KATA_UDE_UKE_GROUPS: KataTechniqueGroup[] = [
     levelBadge: "Circular (Mawashi)",
     wasMissingInOriginalDoc: true,
     originalIssueNote:
-      "EM FALTA NO ORIGINAL: Os movimentos 11 e 12 (MAWASHI-UDE-UKE) também não possuíam nenhuma ilustração no documento original. Foram integralmente criados com diagramas de trajetória circular!",
+      "",
     mainIllustration: "/illustrations/11_12_mawashi_ude_uke.jpg",
     sequenceIllustration: "/illustrations/seq_mawashi_ude_uke.jpg",
     originalMediaFiles: [],
@@ -454,7 +454,7 @@ export const KATA_UDE_UKE_GROUPS: KataTechniqueGroup[] = [
   },
   {
     id: "juji-ude-uke",
-    groupTitle: "13 & 14. JUJI-UDE-UKE (GEDAN & JODAN)",
+    groupTitle: "JUJI-UDE-UKE (GEDAN & JODAN)",
     movementRange: "Movimentos 13 e 14",
     romaji: "Juji-Ude-Uke",
     kanji: "十字腕受け",

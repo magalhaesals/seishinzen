@@ -2,10 +2,8 @@
 
 import React, { useState } from "react";
 import { KATA_UDE_UKE_GROUPS, KataTechniqueGroup } from "@/data/kataMovements";
-import { VectorBiomechanicsDiagram } from "@/components/VectorBiomechanicsDiagram";
 import {
   Download,
-  CheckCircle2,
   BookOpen,
   Layers,
   Compass,
@@ -23,7 +21,6 @@ export default function KataUdeUkeManualPage() {
 
   const filteredGroups = KATA_UDE_UKE_GROUPS.filter((group) => {
     if (selectedLevel === "ALL") return true;
-    if (selectedLevel === "MISSING") return group.wasMissingInOriginalDoc;
     return group.movements.some((m) => m.level === selectedLevel);
   });
 
@@ -80,8 +77,7 @@ export default function KataUdeUkeManualPage() {
             </h2>
             <p className="mt-3 max-w-3xl text-sm leading-relaxed text-slate-300 sm:text-base print:text-slate-600">
               Manual técnico ilustrado do{" "}
-              <strong>Kata Ude Uke</strong> com todas as defesas refeitas num
-              estilo unificado de Ju-Jitsu.
+              <strong>Kata Ude Uke</strong>
             </p>
 
             {/* Quick Jump Pills */}
@@ -113,13 +109,9 @@ export default function KataUdeUkeManualPage() {
           <div className="flex flex-wrap gap-2">
             {[
               { id: "ALL", label: "Todos os 14 Movimentos" },
-              { id: "Jodan", label: "Nível Alto (Jodan)" },
-              { id: "Chudan", label: "Nível Médio (Chudan)" },
-              { id: "Gedan", label: "Nível Baixo (Gedan)" },
-              {
-                id: "MISSING",
-                label: "Em Falta no Original (Mov. 9 a 12)",
-              },
+              { id: "Jodan", label: "Alto (Jodan)" },
+              { id: "Chudan", label: "Médio (Chudan)" },
+              { id: "Gedan", label: "Baixo (Gedan)" },
             ].map((tab) => (
               <button
                 key={tab.id}
@@ -167,16 +159,6 @@ export default function KataUdeUkeManualPage() {
                 </div>
               </div>
 
-              <div className="flex items-center gap-2">
-                {group.wasMissingInOriginalDoc && (
-                  <span className="rounded-full bg-amber-400/20 border border-amber-400/40 px-3 py-1 text-xs font-bold text-amber-300">
-                    Ilustração Inédita (Faltava no Original)
-                  </span>
-                )}
-                <span className="rounded-full bg-slate-800 border border-slate-700 px-3 py-1 text-xs font-semibold text-slate-200">
-                  {group.levelBadge}
-                </span>
-              </div>
             </div>
 
             <div className="p-6 lg:p-8 space-y-8">
@@ -346,13 +328,6 @@ export default function KataUdeUkeManualPage() {
                         </div>
                       </dl>
                     </div>
-
-                    <div className="mt-4">
-                      <VectorBiomechanicsDiagram
-                        techniqueId={group.id}
-                        movementNumber={mov.number}
-                      />
-                    </div>
                   </div>
                 ))}
               </div>
@@ -406,65 +381,6 @@ export default function KataUdeUkeManualPage() {
           </article>
         ))}
       </main>
-
-      {/* Complete Reference Table of All 14 Movements */}
-      <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
-        <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xs">
-          <div className="border-b border-slate-200 bg-slate-900 px-6 py-4 text-white">
-            <h3 className="text-lg font-bold">
-              Quadro Sinóptico dos 14 Movimentos — Kata Ude Uke
-            </h3>
-            <p className="text-xs text-slate-300">
-              Referência rápida da ordem oficial do manual com nomenclatura
-              corrigida e padronizada
-            </p>
-          </div>
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs">
-              <thead className="border-b border-slate-200 bg-slate-100 text-slate-700 uppercase">
-                <tr>
-                  <th className="px-4 py-3 font-bold">Nº</th>
-                  <th className="px-4 py-3 font-bold">Movimento no Kata</th>
-                  <th className="px-4 py-3 font-bold">Lado / Base</th>
-                  <th className="px-4 py-3 font-bold">Nível</th>
-                  <th className="px-4 py-3 font-bold">Estado da Ilustração</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-200">
-                {KATA_UDE_UKE_GROUPS.flatMap((g) =>
-                  g.movements.map((m) => ({ group: g, mov: m }))
-                ).map(({ group, mov }) => (
-                  <tr key={mov.number} className="hover:bg-slate-50">
-                    <td className="px-4 py-3 font-black text-slate-900">
-                      {mov.number}
-                    </td>
-                    <td className="px-4 py-3 font-bold text-slate-900">
-                      {mov.name}{" "}
-                      <span className="font-normal text-slate-500">
-                        ({group.kanji})
-                      </span>
-                    </td>
-                    <td className="px-4 py-3 text-slate-700">{mov.stance}</td>
-                    <td className="px-4 py-3">
-                      <span className="rounded-md bg-slate-100 px-2 py-0.5 font-semibold text-slate-800">
-                        {mov.level}
-                      </span>
-                    </td>
-                    <td className="px-4 py-3">
-                      <span className="inline-flex items-center gap-1 font-semibold text-emerald-700">
-                        <CheckCircle2 className="h-3.5 w-3.5" />
-                        {group.wasMissingInOriginalDoc
-                          ? "Criada de Raiz + Sequência"
-                          : "Refeita & Padronizada"}
-                      </span>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
 
       {/* Lightbox Modal for High-Resolution Inspection */}
       {lightboxImage && (
