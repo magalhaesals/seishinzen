@@ -4,6 +4,7 @@ import {
   FAIXA_AMARELA_DEFENSES,
   FAIXA_AMARELA_PROGRAM,
 } from "@/data/faixaAmarela";
+import { PrintButton } from "./PrintButton";
 
 export const metadata: Metadata = {
   title: "Programa Técnico — Cinto Amarelo (Ju-Jitsu)",
@@ -39,12 +40,7 @@ export default function FaixaAmarelaPage() {
             >
               Kata Ude Uke
             </Link>
-            <a
-              href="#defesas"
-              className="rounded-lg bg-slate-900 px-3 py-2 text-white transition-colors hover:bg-slate-800"
-            >
-              Ver defesas
-            </a>
+            <PrintButton className="inline-flex items-center gap-2 rounded-lg bg-slate-900 px-3 py-2 text-white transition-colors hover:bg-slate-800" />
           </nav>
         </div>
       </header>
@@ -69,21 +65,8 @@ export default function FaixaAmarelaPage() {
             </span>
           </h1>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg print:text-slate-600">
-            {FAIXA_AMARELA_PROGRAM.subtitle}. Cada defesa termina em{" "}
-            <strong className="text-white print:text-slate-900">Kamae</strong> —
-            retorno à posição de guarda.
+            {FAIXA_AMARELA_PROGRAM.subtitle}.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3 text-sm font-semibold print:hidden">
-            <a
-              href="#defesas"
-              className="inline-flex items-center rounded-lg bg-amber-500 px-5 py-2.5 text-slate-950 transition-transform hover:-translate-y-0.5"
-            >
-              Abrir as 11 defesas
-            </a>
-            <p className="inline-flex items-center rounded-lg border border-white/15 bg-white/5 px-4 py-2.5 text-slate-200">
-              11 sequências · exame técnico
-            </p>
-          </div>
         </div>
       </section>
 
@@ -102,7 +85,7 @@ export default function FaixaAmarelaPage() {
           </p>
         </div>
 
-        <ol className="space-y-6">
+        <ol className="space-y-8">
           {FAIXA_AMARELA_DEFENSES.map((defense) => (
             <li
               key={defense.number}
@@ -119,40 +102,29 @@ export default function FaixaAmarelaPage() {
               </div>
 
               <ol className="divide-y divide-slate-100">
-                {defense.techniques.map((tech, index) => {
-                  const isKamae = tech.romaji === "KAMAE";
-                  return (
-                    <li
-                      key={`${defense.number}-${index}-${tech.romaji}`}
-                      className={`flex gap-3 px-4 py-3.5 sm:gap-4 sm:px-5 ${
-                        isKamae ? "bg-amber-50" : "bg-transparent"
-                      }`}
-                    >
-                      <span
-                        className={`mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[11px] font-bold ${
-                          isKamae
-                            ? "bg-amber-500 text-slate-950"
-                            : "bg-slate-900 text-white"
-                        }`}
-                      >
-                        {index + 1}
-                      </span>
-                      <div className="min-w-0">
-                        <p className="font-extrabold tracking-tight text-slate-950">
-                          {tech.count ? (
-                            <span className="mr-1.5 text-amber-700">
-                              {tech.count}×
-                            </span>
-                          ) : null}
-                          {tech.romaji}
-                        </p>
-                        <p className="mt-0.5 text-sm leading-relaxed text-slate-600">
-                          {tech.description}
-                        </p>
-                      </div>
-                    </li>
-                  );
-                })}
+                {defense.techniques.map((tech, index) => (
+                  <li
+                    key={`${defense.number}-${index}-${tech.romaji}`}
+                    className="flex gap-3 px-4 py-3.5 sm:gap-4 sm:px-5"
+                  >
+                    <span className="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-slate-900 text-[11px] font-bold text-white">
+                      {index + 1}
+                    </span>
+                    <div className="min-w-0">
+                      <p className="font-extrabold tracking-tight text-slate-950">
+                        {tech.count ? (
+                          <span className="mr-1.5 text-amber-700">
+                            {tech.count}×
+                          </span>
+                        ) : null}
+                        {tech.romaji}
+                      </p>
+                      <p className="mt-0.5 text-sm leading-relaxed text-slate-600">
+                        {tech.description}
+                      </p>
+                    </div>
+                  </li>
+                ))}
               </ol>
             </li>
           ))}
