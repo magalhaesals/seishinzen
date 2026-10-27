@@ -9,7 +9,7 @@ import "./cinto-resumo-print.css";
 export const metadata: Metadata = {
   title: "Cinto Amarelo — Resumo 1 Página",
   description:
-    "Folha-resumo A4 paisagem com as 11 defesas do programa técnico de Cinto Amarelo.",
+    "Folha-resumo A4 retrato com as 11 defesas do programa técnico de Cinto Amarelo.",
 };
 
 export default function CintoAmareloResumoPage() {

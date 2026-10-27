@@ -1,31 +1,31 @@
-/* Cinto Amarelo 1-page sheet — A4 landscape for print / PDF */
+/* Cinto Amarelo 1-page sheet — A4 portrait for print / PDF */
 
 .cinto-resumo-sheet-wrap {
   background: #e2e8f0;
 }
 
 .cinto-resumo-sheet {
-  width: 297mm;
-  height: 210mm;
-  min-height: 210mm;
+  width: 210mm;
+  height: 297mm;
+  min-height: 297mm;
   max-width: 100%;
   box-sizing: border-box;
-  padding: 3mm 3.5mm 2.5mm;
+  padding: 4mm 4.5mm 3mm;
   background: #ffffff;
   color: #0f172a;
   box-shadow: 0 8px 30px rgba(15, 23, 42, 0.12);
   display: flex;
   flex-direction: column;
-  gap: 1.5mm;
+  gap: 2mm;
   overflow: hidden;
 }
 
 .cinto-resumo-title {
   display: flex;
   align-items: center;
-  gap: 2mm;
-  margin: -3mm -3.5mm 0;
-  padding: 2mm 3.5mm;
+  gap: 2.5mm;
+  margin: -4mm -4.5mm 0;
+  padding: 2.5mm 4.5mm;
   background: #0f172a;
   color: #ffffff;
   flex-shrink: 0;
@@ -35,21 +35,21 @@
 
 .cinto-resumo-title-mark {
   flex-shrink: 0;
-  width: 7.5mm;
-  height: 7.5mm;
+  width: 8mm;
+  height: 8mm;
   display: flex;
   align-items: center;
   justify-content: center;
   background: #f59e0b;
   color: #0f172a;
   font-weight: 800;
-  font-size: 4.2mm;
+  font-size: 4.5mm;
   border-radius: 1mm;
 }
 
 .cinto-resumo-eyebrow {
   margin: 0;
-  font-size: 2.4mm;
+  font-size: 2.5mm;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -57,8 +57,8 @@
 }
 
 .cinto-resumo-title h1 {
-  margin: 0.3mm 0 0;
-  font-size: 5mm;
+  margin: 0.4mm 0 0;
+  font-size: 5.5mm;
   font-weight: 900;
   letter-spacing: -0.02em;
   line-height: 1.05;
@@ -66,43 +66,41 @@
 }
 
 .cinto-resumo-subtitle {
-  margin: 0.4mm 0 0;
-  font-size: 2.4mm;
+  margin: 0.5mm 0 0;
+  font-size: 2.5mm;
   color: #cbd5e1;
 }
 
-/* 3 rows: 4 + 4 + 3 (centered) */
+/* Portrait: 2 columns, 6 rows (last defense full width) */
 .cinto-resumo-grid {
   flex: 1 1 auto;
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: 1fr 1fr 1fr;
-  gap: 1.4mm;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(6, 1fr);
+  gap: 1.8mm;
   min-height: 0;
 }
 
 .cinto-resumo-cell {
-  grid-column: span 3;
   display: flex;
   flex-direction: column;
   min-height: 0;
   min-width: 0;
   border: 0.4pt solid #cbd5e1;
-  border-radius: 1mm;
+  border-radius: 1.2mm;
   overflow: hidden;
   background: #ffffff;
 }
 
-/* Bottom row: defenses 9–11 (span 4 each) */
-.cinto-resumo-cell:nth-child(n + 9) {
-  grid-column: span 4;
+.cinto-resumo-cell:nth-child(11) {
+  grid-column: 1 / -1;
 }
 
 .cinto-resumo-caption {
   display: flex;
   align-items: baseline;
-  gap: 1mm 1.4mm;
-  padding: 0.9mm 1.2mm;
+  gap: 1.2mm 1.6mm;
+  padding: 1.1mm 1.6mm;
   background: #0f172a;
   color: #ffffff;
   line-height: 1.15;
@@ -112,14 +110,14 @@
 }
 
 .cinto-resumo-num {
-  font-size: 2.2mm;
+  font-size: 2.4mm;
   font-weight: 800;
   color: #fbbf24;
   flex-shrink: 0;
 }
 
 .cinto-resumo-name {
-  font-size: 2.4mm;
+  font-size: 2.6mm;
   font-weight: 800;
   letter-spacing: -0.01em;
 }
@@ -127,25 +125,25 @@
 .cinto-resumo-list {
   flex: 1 1 auto;
   margin: 0;
-  padding: 1mm 1.4mm 1.2mm;
+  padding: 1.2mm 1.6mm 1.4mm;
   list-style: none;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  gap: 0.4mm;
+  gap: 0.55mm;
   min-height: 0;
 }
 
 .cinto-resumo-list li {
-  font-size: 1.85mm;
-  line-height: 1.25;
+  font-size: 2.05mm;
+  line-height: 1.28;
   color: #334155;
 }
 
 .cinto-resumo-list strong {
   color: #0f172a;
   font-weight: 800;
-  font-size: 1.95mm;
+  font-size: 2.15mm;
 }
 
 .cinto-resumo-desc {
@@ -156,16 +154,16 @@
 .cinto-resumo-footer {
   flex-shrink: 0;
   margin-top: 0;
-  padding-top: 0.8mm;
+  padding-top: 1mm;
   border-top: 0.4pt solid #cbd5e1;
-  font-size: 1.8mm;
+  font-size: 1.9mm;
   color: #64748b;
   text-align: center;
 }
 
 @media print {
   @page {
-    size: A4 landscape;
+    size: A4 portrait;
     margin: 0;
   }
 
@@ -193,10 +191,10 @@
   }
 
   .cinto-resumo-sheet {
-    width: 297mm !important;
-    height: 210mm !important;
-    min-height: 210mm !important;
-    max-height: 210mm !important;
+    width: 210mm !important;
+    height: 297mm !important;
+    min-height: 297mm !important;
+    max-height: 297mm !important;
     margin: 0 !important;
     box-shadow: none !important;
     page-break-after: avoid;
