@@ -137,15 +137,20 @@
 }
 
 .cinto-resumo-list li {
-  font-size: 2mm;
-  line-height: 1.2;
+  font-size: 1.85mm;
+  line-height: 1.25;
   color: #334155;
 }
 
 .cinto-resumo-list strong {
   color: #0f172a;
   font-weight: 800;
-  font-size: 2.05mm;
+  font-size: 1.95mm;
+}
+
+.cinto-resumo-desc {
+  color: #475569;
+  font-weight: 500;
 }
 
 .cinto-resumo-footer {

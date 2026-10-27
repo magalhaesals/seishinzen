@@ -48,6 +48,10 @@ export default function CintoAmareloResumoPage() {
                         {tech.count ? `${tech.count}× ` : ""}
                         {tech.romaji}
                       </strong>
+                      <span className="cinto-resumo-desc">
+                        {" — "}
+                        {tech.description}
+                      </span>
                     </li>
                   ))}
                 </ol>
