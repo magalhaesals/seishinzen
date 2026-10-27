@@ -38,19 +38,21 @@ export default function CintoAmareloResumoPage() {
             {FAIXA_AMARELA_DEFENSES.map((defense) => (
               <section key={defense.number} className="cinto-resumo-cell">
                 <div className="cinto-resumo-caption">
-                  <span className="cinto-resumo-num">{defense.number}</span>
                   <span className="cinto-resumo-name">{defense.title}</span>
                 </div>
                 <ol className="cinto-resumo-list">
                   {defense.techniques.map((tech, index) => (
                     <li key={`${defense.number}-${index}-${tech.romaji}`}>
-                      <strong>
-                        {tech.count ? `${tech.count}× ` : ""}
-                        {tech.romaji}
-                      </strong>
-                      <span className="cinto-resumo-desc">
-                        {" — "}
-                        {tech.description}
+                      <span className="cinto-resumo-step">{index + 1}.</span>
+                      <span className="cinto-resumo-tech">
+                        <strong>
+                          {tech.count ? `${tech.count}× ` : ""}
+                          {tech.romaji}
+                        </strong>
+                        <span className="cinto-resumo-desc">
+                          {" — "}
+                          {tech.description}
+                        </span>
                       </span>
                     </li>
                   ))}
