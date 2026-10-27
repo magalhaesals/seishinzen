@@ -62,7 +62,33 @@ export const UKEMI_FALLS: UkemiFall[] = [
     detail:
       "Queda lateral com o braço do lado da queda a bater no solo e o corpo alinhado para proteger a cabeça e o tronco.",
     mainIllustration: "/illustrations/ukemi/02_yoko_ukemi.jpg",
-    steps: [],
+    sequenceIllustration: "/illustrations/ukemi/seq_yoko_ukemi.jpg",
+    steps: [
+      {
+        stepNumber: 1,
+        phaseTitle: "Cruzamento e preparação",
+        detail:
+          "Peso na perna de apoio; a outra perna cruza à frente e o braço oposto estende-se atravessando o peito.",
+      },
+      {
+        stepNumber: 2,
+        phaseTitle: "Descida lateral",
+        detail:
+          "Agacha sobre a perna de apoio, mantendo o braço alinhado para o batimento lateral.",
+      },
+      {
+        stepNumber: 3,
+        phaseTitle: "Queda e batimento",
+        detail:
+          "Cai de lado; o braço do lado da queda bate no solo enquanto as pernas elevam-se.",
+      },
+      {
+        stepNumber: 4,
+        phaseTitle: "Posição final",
+        detail:
+          "Corpo de lado, braço estendido no solo, cabeça protegida e pernas estabilizadas.",
+      },
+    ],
   },
   {
     number: "03",
