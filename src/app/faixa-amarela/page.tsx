@@ -4,6 +4,7 @@ import {
   FAIXA_AMARELA_DEFENSES,
   FAIXA_AMARELA_PROGRAM,
 } from "@/data/faixaAmarela";
+import { PrintButton } from "./PrintButton";
 
 export const metadata: Metadata = {
   title: "Programa Técnico — Cinto Amarelo (Ju-Jitsu)",
@@ -39,12 +40,7 @@ export default function FaixaAmarelaPage() {
             >
               Kata Ude Uke
             </Link>
-            <a
-              href="#defesas"
-              className="rounded-lg bg-slate-900 px-3 py-2 text-white transition-colors hover:bg-slate-800"
-            >
-              Ver defesas
-            </a>
+            <PrintButton className="inline-flex items-center gap-2 rounded-lg bg-slate-900 px-3 py-2 text-white transition-colors hover:bg-slate-800" />
           </nav>
         </div>
       </header>
@@ -71,16 +67,8 @@ export default function FaixaAmarelaPage() {
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg print:text-slate-600">
             {FAIXA_AMARELA_PROGRAM.subtitle}.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3 text-sm font-semibold print:hidden">
-            <a
-              href="#defesas"
-              className="inline-flex items-center rounded-lg bg-amber-500 px-5 py-2.5 text-slate-950 transition-transform hover:-translate-y-0.5"
-            >
-              Abrir as 11 defesas
-            </a>
-            <p className="inline-flex items-center rounded-lg border border-white/15 bg-white/5 px-4 py-2.5 text-slate-200">
-              11 sequências · exame técnico
-            </p>
+          <div className="mt-8 print:hidden">
+            <PrintButton className="inline-flex items-center gap-2 rounded-lg bg-amber-500 px-5 py-2.5 text-sm font-semibold text-slate-950 transition-transform hover:-translate-y-0.5" />
           </div>
         </div>
       </section>
