@@ -98,7 +98,33 @@ export const UKEMI_FALLS: UkemiFall[] = [
     detail:
       "Queda frontal amortecida pelos antebraços e pontas dos pés, mantendo o corpo elevado e a cabeça protegida.",
     mainIllustration: "/illustrations/ukemi/03_mae_ukemi.jpg",
-    steps: [],
+    sequenceIllustration: "/illustrations/ukemi/seq_mae_ukemi.jpg",
+    steps: [
+      {
+        stepNumber: 1,
+        phaseTitle: "Guarda frontal",
+        detail:
+          "Em pé, pés juntos; antebraços à frente do peito com as palmas viradas para a frente.",
+      },
+      {
+        stepNumber: 2,
+        phaseTitle: "Inclinação à frente",
+        detail:
+          "Inclina o corpo em bloco mantendo os braços na linha de proteção.",
+      },
+      {
+        stepNumber: 3,
+        phaseTitle: "Descida em diagonal",
+        detail:
+          "Projeta-se para a frente sobre as pontas dos pés, levando os antebraços ao solo.",
+      },
+      {
+        stepNumber: 4,
+        phaseTitle: "Amortecimento final",
+        detail:
+          "Corpo elevado pelos antebraços e pontas dos pés; cabeça virada de lado, sem bater o rosto.",
+      },
+    ],
   },
   {
     number: "04",
