@@ -119,40 +119,29 @@ export default function FaixaAmarelaPage() {
               </div>
 
               <ol className="divide-y divide-slate-100">
-                {defense.techniques.map((tech, index) => {
-                  const isKamae = tech.romaji === "KAMAE";
-                  return (
-                    <li
-                      key={`${defense.number}-${index}-${tech.romaji}`}
-                      className={`flex gap-3 px-4 py-3.5 sm:gap-4 sm:px-5 ${
-                        isKamae ? "bg-amber-50" : "bg-transparent"
-                      }`}
-                    >
-                      <span
-                        className={`mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[11px] font-bold ${
-                          isKamae
-                            ? "bg-amber-500 text-slate-950"
-                            : "bg-slate-900 text-white"
-                        }`}
-                      >
-                        {index + 1}
-                      </span>
-                      <div className="min-w-0">
-                        <p className="font-extrabold tracking-tight text-slate-950">
-                          {tech.count ? (
-                            <span className="mr-1.5 text-amber-700">
-                              {tech.count}×
-                            </span>
-                          ) : null}
-                          {tech.romaji}
-                        </p>
-                        <p className="mt-0.5 text-sm leading-relaxed text-slate-600">
-                          {tech.description}
-                        </p>
-                      </div>
-                    </li>
-                  );
-                })}
+                {defense.techniques.map((tech, index) => (
+                  <li
+                    key={`${defense.number}-${index}-${tech.romaji}`}
+                    className="flex gap-3 px-4 py-3.5 sm:gap-4 sm:px-5"
+                  >
+                    <span className="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-slate-900 text-[11px] font-bold text-white">
+                      {index + 1}
+                    </span>
+                    <div className="min-w-0">
+                      <p className="font-extrabold tracking-tight text-slate-950">
+                        {tech.count ? (
+                          <span className="mr-1.5 text-amber-700">
+                            {tech.count}×
+                          </span>
+                        ) : null}
+                        {tech.romaji}
+                      </p>
+                      <p className="mt-0.5 text-sm leading-relaxed text-slate-600">
+                        {tech.description}
+                      </p>
+                    </div>
+                  </li>
+                ))}
               </ol>
             </li>
           ))}
