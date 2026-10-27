@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "pdf:resumo": "node scripts/generate-resumo-pdf.mjs"
+    "pdf:resumo": "node scripts/generate-pdfs.mjs http://127.0.0.1:43123 resumo",
+    "pdf:full": "node scripts/generate-pdfs.mjs http://127.0.0.1:43123 full",
+    "pdf:all": "node scripts/generate-pdfs.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",
