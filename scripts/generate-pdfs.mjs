@@ -3,13 +3,14 @@
  * Generate public PDF assets from the live Next.js print layouts
  * using headless Chromium.
  *
- * - /resumo  → public/KATA_UDE_UKE_RESUMO.pdf  (1-page sheet)
- * - /        → public/KATA_UDE_UKE.pdf         (full manual)
+ * - /resumo                 → public/KATA_UDE_UKE_RESUMO.pdf
+ * - /                       → public/KATA_UDE_UKE.pdf
+ * - /faixa-amarela/resumo   → public/CINTO_AMARELO_RESUMO.pdf
  *
  * Requires the Next.js server to be up (dev or prod).
  *
  * Usage: node scripts/generate-pdfs.mjs [baseUrl] [which]
- *   which: all | resumo | full   (default: all)
+ *   which: all | resumo | full | cinto   (default: all)
  * Default baseUrl: http://127.0.0.1:43123
  */
 import { spawn } from "node:child_process";
@@ -84,9 +85,18 @@ if (which === "all" || which === "full") {
     timeoutMs: 180_000,
   });
 }
+if (which === "all" || which === "cinto") {
+  jobs.push({
+    name: "cinto",
+    url: `${baseUrl}/faixa-amarela/resumo`,
+    out: path.join(root, "public", "CINTO_AMARELO_RESUMO.pdf"),
+    budgetMs: 15_000,
+    timeoutMs: 90_000,
+  });
+}
 
 if (jobs.length === 0) {
-  console.error(`Unknown which="${which}". Use all | resumo | full.`);
+  console.error(`Unknown which="${which}". Use all | resumo | full | cinto.`);
   process.exit(1);
 }
 

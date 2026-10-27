@@ -9,6 +9,7 @@
     "lint": "eslint",
     "pdf:resumo": "node scripts/generate-pdfs.mjs http://127.0.0.1:43123 resumo",
     "pdf:full": "node scripts/generate-pdfs.mjs http://127.0.0.1:43123 full",
+    "pdf:cinto": "node scripts/generate-pdfs.mjs http://127.0.0.1:43123 cinto",
     "pdf:all": "node scripts/generate-pdfs.mjs"
   },
   "dependencies": {
