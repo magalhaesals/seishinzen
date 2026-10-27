@@ -21,7 +21,6 @@ export default function KataUdeUkeManualPage() {
 
   const filteredGroups = KATA_UDE_UKE_GROUPS.filter((group) => {
     if (selectedLevel === "ALL") return true;
-    if (selectedLevel === "MISSING") return group.wasMissingInOriginalDoc;
     return group.movements.some((m) => m.level === selectedLevel);
   });
 
@@ -78,8 +77,7 @@ export default function KataUdeUkeManualPage() {
             </h2>
             <p className="mt-3 max-w-3xl text-sm leading-relaxed text-slate-300 sm:text-base print:text-slate-600">
               Manual técnico ilustrado do{" "}
-              <strong>Kata Ude Uke</strong> com todas as defesas refeitas num
-              estilo unificado de Ju-Jitsu.
+              <strong>Kata Ude Uke</strong>
             </p>
 
             {/* Quick Jump Pills */}
@@ -111,13 +109,9 @@ export default function KataUdeUkeManualPage() {
           <div className="flex flex-wrap gap-2">
             {[
               { id: "ALL", label: "Todos os 14 Movimentos" },
-              { id: "Jodan", label: "Nível Alto (Jodan)" },
-              { id: "Chudan", label: "Nível Médio (Chudan)" },
-              { id: "Gedan", label: "Nível Baixo (Gedan)" },
-              {
-                id: "MISSING",
-                label: "Em Falta no Original (Mov. 9 a 12)",
-              },
+              { id: "Jodan", label: "Alto (Jodan)" },
+              { id: "Chudan", label: "Médio (Chudan)" },
+              { id: "Gedan", label: "Baixo (Gedan)" },
             ].map((tab) => (
               <button
                 key={tab.id}
