@@ -1,7 +1,7 @@
-/* Resumo route: exact single A4 page when printing / PDF */
+/* Resumo route: exact single A4 landscape page when printing / PDF */
 @media print {
   @page {
-    size: A4 portrait;
+    size: A4 landscape;
     margin: 0;
   }
 
@@ -29,10 +29,10 @@
   }
 
   .resumo-sheet {
-    width: 210mm !important;
-    height: 297mm !important;
-    min-height: 297mm !important;
-    max-height: 297mm !important;
+    width: 297mm !important;
+    height: 210mm !important;
+    min-height: 210mm !important;
+    max-height: 210mm !important;
     margin: 0 !important;
     box-shadow: none !important;
     page-break-after: avoid;

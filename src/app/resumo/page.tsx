@@ -6,7 +6,7 @@ import "./resumo-print.css";
 export const metadata: Metadata = {
   title: "KATA UDE UKE — Resumo 1 Página",
   description:
-    "Folha-resumo A4 com as 7 defesas do Kata Ude Uke e a ilustração principal de cada técnica.",
+    "Folha-resumo A4 paisagem com as 7 defesas do Kata Ude Uke e a ilustração principal de cada técnica.",
 };
 
 /** Short Portuguese labels for the 1-page sheet */
