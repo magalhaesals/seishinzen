@@ -8,7 +8,7 @@ import {
   UKEMI_PROGRAM,
 } from "@/data/ukemi";
 import { PrintButton } from "@/components/PrintButton";
-import { Layers, Maximize2, X } from "lucide-react";
+import { Maximize2, X } from "lucide-react";
 
 export default function UkemiPage() {
   const [lightboxImage, setLightboxImage] = useState<{
@@ -81,10 +81,23 @@ export default function UkemiPage() {
 
       <main className="mx-auto max-w-7xl space-y-10 px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
         <figure className="overflow-hidden rounded-xl border border-slate-200 bg-white">
-          <div className="border-b border-slate-200 bg-slate-950 px-4 py-3 text-white sm:px-5">
+          <div className="flex items-center justify-between border-b border-slate-200 bg-slate-950 px-4 py-3 text-white sm:px-5">
             <p className="text-xs font-bold uppercase tracking-[0.16em]">
               Prancha das 4 quedas
             </p>
+            <button
+              type="button"
+              onClick={() =>
+                setLightboxImage({
+                  src: UKEMI_MAIN_ILLUSTRATION,
+                  caption: "Prancha das 4 quedas — Ukemi",
+                })
+              }
+              className="inline-flex items-center gap-1 rounded-md px-2 py-1 text-xs font-medium text-slate-300 hover:bg-white/10 hover:text-white print:hidden"
+            >
+              <Maximize2 className="h-3.5 w-3.5" />
+              Ampliar
+            </button>
           </div>
           <div
             className="cursor-zoom-in bg-slate-50 p-3 sm:p-5"
@@ -104,107 +117,38 @@ export default function UkemiPage() {
           </div>
         </figure>
 
-        {UKEMI_FALLS.map((fall) => (
-          <section
-            key={fall.number}
-            id={`ukemi-${fall.number}`}
-            className="scroll-mt-24 overflow-hidden rounded-xl border border-slate-200 bg-white print:break-inside-avoid"
-          >
-            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 bg-slate-950 px-4 py-4 text-white sm:px-6">
-              <div className="flex items-center gap-3">
-                <span className="inline-flex h-10 min-w-10 items-center justify-center rounded-lg bg-red-700 px-2 text-sm font-black text-white">
+        <ol className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          {UKEMI_FALLS.map((fall) => (
+            <li
+              key={fall.number}
+              id={`ukemi-${fall.number}`}
+              className="scroll-mt-24 overflow-hidden rounded-xl border border-slate-200 bg-white print:break-inside-avoid"
+            >
+              <div className="flex items-center gap-3 border-b border-slate-200 bg-slate-950 px-4 py-3 text-white sm:px-5">
+                <span className="inline-flex h-8 min-w-8 items-center justify-center rounded-md bg-red-700 px-2 text-sm font-black text-white">
                   {fall.number}
                 </span>
-                <div>
-                  <div className="flex flex-wrap items-center gap-2.5">
-                    <h2 className="text-xl font-extrabold tracking-tight sm:text-2xl">
-                      {fall.romaji}
-                    </h2>
-                    <span className="text-base font-medium text-slate-400">
-                      {fall.kanji}
-                    </span>
-                  </div>
-                  <p className="text-xs text-red-300 sm:text-sm">
+                <div className="min-w-0">
+                  <h2 className="truncate text-sm font-bold tracking-wide">
+                    {fall.romaji}
+                    {fall.romajiAlt ? (
+                      <span className="font-medium text-slate-400">
+                        {" "}
+                        / {fall.romajiAlt}
+                      </span>
+                    ) : null}
+                  </h2>
+                  <p className="text-xs font-semibold text-red-300">
                     {fall.translationPt}
-                    {fall.romajiAlt ? ` · ${fall.romajiAlt}` : ""}
                   </p>
                 </div>
               </div>
-            </div>
-
-            <div className="space-y-8 p-6 lg:p-8">
-              {fall.sequenceIllustration ? (
-                <div className="group flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-slate-50/60">
-                  <div className="flex items-center justify-between border-b border-slate-200 bg-white px-4 py-2.5">
-                    <div className="flex items-center gap-2">
-                      <Layers className="h-4 w-4 text-red-700" />
-                      <span className="text-xs font-bold uppercase tracking-wider text-slate-800">
-                        Sequência Biomecânica Passo a Passo ({fall.romaji})
-                      </span>
-                    </div>
-                    <button
-                      type="button"
-                      onClick={() =>
-                        setLightboxImage({
-                          src: fall.sequenceIllustration!,
-                          caption: `Sequência Passo a Passo — ${fall.romaji}`,
-                        })
-                      }
-                      className="inline-flex items-center gap-1 rounded-md px-2 py-1 text-xs font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-900 print:hidden"
-                    >
-                      <Maximize2 className="h-3.5 w-3.5" />
-                      Ampliar
-                    </button>
-                  </div>
-                  <div
-                    onClick={() =>
-                      setLightboxImage({
-                        src: fall.sequenceIllustration!,
-                        caption: `Sequência Passo a Passo — ${fall.romaji}`,
-                      })
-                    }
-                    className="relative flex flex-1 cursor-zoom-in items-center justify-center bg-white p-3"
-                  >
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={fall.sequenceIllustration}
-                      alt={`Sequência passo a passo de ${fall.romaji}`}
-                      className="max-h-[340px] w-full rounded-lg object-contain transition-transform duration-200 group-hover:scale-[1.01]"
-                    />
-                  </div>
-                  <div className="border-t border-slate-200 bg-slate-50 px-4 py-2 text-xs text-slate-600">
-                    {fall.detail}
-                  </div>
-                </div>
-              ) : (
-                <p className="text-sm leading-relaxed text-slate-600">
-                  {fall.detail}
-                </p>
-              )}
-
-              {fall.steps.length > 0 ? (
-                <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-                  {fall.steps.map((step) => (
-                    <div
-                      key={step.stepNumber}
-                      className="rounded-xl border border-slate-200 bg-slate-50/50 p-5"
-                    >
-                      <span className="inline-flex items-center gap-1.5 rounded-md bg-slate-900 px-2.5 py-1 text-xs font-bold text-white">
-                        Passo {step.stepNumber}
-                      </span>
-                      <h3 className="mt-3 text-lg font-bold text-slate-900">
-                        {step.phaseTitle}
-                      </h3>
-                      <p className="mt-1.5 text-sm leading-relaxed text-slate-600">
-                        {step.detail}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              ) : null}
-            </div>
-          </section>
-        ))}
+              <p className="px-4 py-3.5 text-sm leading-relaxed text-slate-600">
+                {fall.detail}
+              </p>
+            </li>
+          ))}
+        </ol>
       </main>
 
       <footer className="border-t border-slate-200 px-4 py-8 text-center text-xs text-slate-500 sm:px-6">
