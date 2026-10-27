@@ -8,6 +8,9 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 <!-- END:nextjs-agent-rules -->
 
+## Cloud Agent
+
+Install with `npm ci`. Start the dev server with `npm run dev -- --hostname 0.0.0.0 --port 43123`. The manual is at `/` and the one-page sheet is at `/resumo`. `allowedDevOrigins` includes `127.0.0.1`, so client features work at both `http://localhost:43123` and `http://127.0.0.1:43123`.
 Quando for criar uma ilustração nova use:
     Estilo de Traço e Arte: Ilustração vetorial limpa no estilo quadrinho oriental/cel-shading com contornos pretos definidos (line art).
     Coloração: Cores chapadas (Quimono branco e cinto negro) com sombreamento suave tom sobre tom para dar volume às dobras do quimono, músculos e texturas corporais. Cabelo grisalho com barba tratada no mesmo padrão de traço.
