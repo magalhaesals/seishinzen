@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import { KATA_UDE_UKE_GROUPS, KataTechniqueGroup } from "@/data/kataMovements";
-import { VectorBiomechanicsDiagram } from "@/components/VectorBiomechanicsDiagram";
 import {
   Download,
   CheckCircle2,
