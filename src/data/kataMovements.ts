@@ -38,7 +38,7 @@ export interface KataTechniqueGroup {
 export const KATA_UDE_UKE_GROUPS: KataTechniqueGroup[] = [
   {
     id: "age-uke",
-    groupTitle: "1 & 2. AGE-UKE",
+    groupTitle: "AGE-UKE",
     movementRange: "Movimentos 1 e 2",
     romaji: "Age-Uke",
     kanji: "揚げ受け",
@@ -109,7 +109,7 @@ export const KATA_UDE_UKE_GROUPS: KataTechniqueGroup[] = [
   },
   {
     id: "gedan-barai-uke",
-    groupTitle: "3 & 4. GEDAN BARAI UKE",
+    groupTitle: "GEDAN BARAI UKE",
     movementRange: "Movimentos 3 e 4",
     romaji: "Gedan Barai Uke",
     kanji: "下段払い受け",
@@ -178,7 +178,7 @@ export const KATA_UDE_UKE_GROUPS: KataTechniqueGroup[] = [
   },
   {
     id: "soto-ude-uke",
-    groupTitle: "5 & 6. SOTO-UDE-UKE",
+    groupTitle: "SOTO-UDE-UKE",
     movementRange: "Movimentos 5 e 6",
     romaji: "Soto-Ude-Uke",
     kanji: "外腕受け",
@@ -247,7 +247,7 @@ export const KATA_UDE_UKE_GROUPS: KataTechniqueGroup[] = [
   },
   {
     id: "uchi-ude-uke",
-    groupTitle: "7 & 8. UCHI-UDE-UKE",
+    groupTitle: "UCHI-UDE-UKE",
     movementRange: "Movimentos 7 e 8",
     romaji: "Uchi-Ude-Uke",
     kanji: "内腕受け",
@@ -316,7 +316,7 @@ export const KATA_UDE_UKE_GROUPS: KataTechniqueGroup[] = [
   },
   {
     id: "mae-ude-uke",
-    groupTitle: "9 & 10. MAE-UDE-UKE",
+    groupTitle: "MAE-UDE-UKE",
     movementRange: "Movimentos 9 e 10",
     romaji: "Mae-Ude-Uke",
     kanji: "前腕受け",
@@ -385,7 +385,7 @@ export const KATA_UDE_UKE_GROUPS: KataTechniqueGroup[] = [
   },
   {
     id: "mawashi-ude-uke",
-    groupTitle: "11 & 12. MAWASHI-UDE-UKE",
+    groupTitle: "MAWASHI-UDE-UKE",
     movementRange: "Movimentos 11 e 12",
     romaji: "Mawashi-Ude-Uke",
     kanji: "回し腕受け",
@@ -393,7 +393,7 @@ export const KATA_UDE_UKE_GROUPS: KataTechniqueGroup[] = [
     levelBadge: "Circular (Mawashi)",
     wasMissingInOriginalDoc: true,
     originalIssueNote:
-      "EM FALTA NO ORIGINAL: Os movimentos 11 e 12 (MAWASHI-UDE-UKE) também não possuíam nenhuma ilustração no documento original. Foram integralmente criados com diagramas de trajetória circular!",
+      "",
     mainIllustration: "/illustrations/11_12_mawashi_ude_uke.jpg",
     sequenceIllustration: "/illustrations/seq_mawashi_ude_uke.jpg",
     originalMediaFiles: [],
@@ -454,7 +454,7 @@ export const KATA_UDE_UKE_GROUPS: KataTechniqueGroup[] = [
   },
   {
     id: "juji-ude-uke",
-    groupTitle: "13 & 14. JUJI-UDE-UKE (GEDAN & JODAN)",
+    groupTitle: "JUJI-UDE-UKE (GEDAN & JODAN)",
     movementRange: "Movimentos 13 e 14",
     romaji: "Juji-Ude-Uke",
     kanji: "十字腕受け",
