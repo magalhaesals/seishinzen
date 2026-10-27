@@ -186,7 +186,7 @@ export const KATA_UDE_UKE_GROUPS: KataTechniqueGroup[] = [
     levelBadge: "Chudan (Médio)",
     wasMissingInOriginalDoc: false,
     originalIssueNote:
-      "O documento original usava um GIF verde néon com fundo preto e um desenho de baixa resolução. Substituído por ilustrações técnicas limpas em fundo branco com setas vetoriais vermelhas.",
+      "O documento original usava um GIF verde néon com fundo preto e um desenho de baixa resolução. Substituído por prancha bilateral e sequência no mesmo estilo realista (gi branco, setas vermelhas) das restantes técnicas — a versão esquemática/mannequin anterior estava fora do padrão.",
     mainIllustration: "/illustrations/05_06_soto_ude_uke.jpg",
     sequenceIllustration: "/illustrations/seq_soto_ude_uke.jpg",
     originalMediaFiles: ["/original-media/image5.gif", "/original-media/image6.gif"],
