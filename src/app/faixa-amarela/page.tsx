@@ -54,7 +54,7 @@ export default function FaixaAmarelaPage() {
               title="Folha A4 com as 11 defesas"
             >
               <Download className="h-3.5 w-3.5" />
-              PDF 1 página
+              PDF
             </a>
             <PrintButton className="inline-flex items-center gap-2 rounded-lg bg-slate-900 px-3 py-2 text-white transition-colors hover:bg-slate-800" />
           </nav>
