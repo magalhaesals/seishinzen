@@ -49,6 +49,12 @@ export default function UkemiPage() {
             >
               Cinto Amarelo
             </Link>
+            <Link
+              href="/vocabulario"
+              className="rounded-lg border border-slate-300 bg-white px-3 py-2 text-slate-800 transition-colors hover:bg-slate-50"
+            >
+              Vocabulário
+            </Link>
             <PrintButton className="inline-flex items-center gap-2 rounded-lg bg-slate-900 px-3 py-2 text-white transition-colors hover:bg-slate-800" />
           </nav>
         </div>

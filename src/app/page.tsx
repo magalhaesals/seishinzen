@@ -61,6 +61,13 @@ export default function KataUdeUkeManualPage() {
               Cinto Amarelo
             </a>
             <a
+              href="/vocabulario"
+              className="inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-4 py-2 text-xs font-semibold text-slate-800 shadow-xs transition-colors hover:bg-slate-50"
+              title="Vocabulário de Waza, números e termos de aula"
+            >
+              Vocabulário
+            </a>
+            <a
               href="/KATA_UDE_UKE_RESUMO.pdf"
               download="KATA_UDE_UKE_RESUMO.pdf"
               className="inline-flex items-center gap-2 rounded-lg border border-red-200 bg-red-50 px-4 py-2 text-xs font-semibold text-red-800 shadow-xs transition-colors hover:bg-red-100"
