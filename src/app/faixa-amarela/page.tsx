@@ -47,6 +47,12 @@ export default function FaixaAmarelaPage() {
             >
               Ukemi
             </Link>
+            <Link
+              href="/vocabulario"
+              className="rounded-lg border border-slate-300 bg-white px-3 py-2 text-slate-800 transition-colors hover:bg-slate-50"
+            >
+              Vocabulário
+            </Link>
             <a
               href="/CINTO_AMARELO_RESUMO.pdf"
               download="CINTO_AMARELO_RESUMO.pdf"
