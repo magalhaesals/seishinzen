@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { BookOpen, Search } from "lucide-react";
+import { BookOpen, Search, X } from "lucide-react";
 import { PrintButton } from "@/components/PrintButton";
 import {
   ATEMI_WAZA,
@@ -11,6 +11,7 @@ import {
   VocabEntry,
   VocabSection,
   countVocabEntries,
+  vocabIllustration,
 } from "@/data/vocabulario";
 
 function fold(value: string) {
@@ -26,6 +27,10 @@ function matches(entry: VocabEntry, query: string) {
 
 export function VocabularioBrowser() {
   const [query, setQuery] = useState("");
+  const [lightbox, setLightbox] = useState<{
+    src: string;
+    caption: string;
+  } | null>(null);
   const foldedQuery = fold(query.trim());
   const total = countVocabEntries();
 
@@ -216,6 +221,7 @@ export function VocabularioBrowser() {
             section={section}
             entries={entries}
             notes={notes}
+            onOpen={setLightbox}
           />
         ))}
       </main>
@@ -223,7 +229,71 @@ export function VocabularioBrowser() {
       <footer className="border-t border-slate-200 px-4 py-8 text-center text-xs text-slate-500 sm:px-6">
         Seishinzen · Vocabulário para alunos · Ju-Jitsu
       </footer>
+
+      {lightbox ? (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 p-4 print:hidden"
+          role="dialog"
+          aria-modal="true"
+          onClick={() => setLightbox(null)}
+        >
+          <div
+            className="relative max-h-[90vh] w-full max-w-3xl overflow-hidden rounded-xl bg-white shadow-2xl"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="flex items-center justify-between border-b border-slate-200 px-4 py-3">
+              <p className="text-sm font-semibold text-slate-800">
+                {lightbox.caption}
+              </p>
+              <button
+                type="button"
+                onClick={() => setLightbox(null)}
+                className="rounded-md p-1.5 text-slate-500 hover:bg-slate-100 hover:text-slate-900"
+                aria-label="Fechar"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+            <div className="bg-white p-4">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={lightbox.src}
+                alt={lightbox.caption}
+                className="mx-auto max-h-[75vh] w-auto object-contain"
+              />
+            </div>
+          </div>
+        </div>
+      ) : null}
     </div>
+  );
+}
+
+function Plate({
+  term,
+  meaning,
+  onOpen,
+}: {
+  term: string;
+  meaning: string;
+  onOpen: (image: { src: string; caption: string }) => void;
+}) {
+  const src = vocabIllustration(term);
+  if (!src) return null;
+  const caption = `${term} — ${meaning}`;
+  return (
+    <button
+      type="button"
+      onClick={() => onOpen({ src, caption })}
+      className="group block w-full overflow-hidden rounded-lg border border-slate-200 bg-white print:border-slate-300"
+    >
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={src}
+        alt={caption}
+        className="h-28 w-full object-contain transition-transform duration-200 group-hover:scale-[1.03] sm:h-32"
+      />
+    </button>
   );
 }
 
@@ -231,10 +301,12 @@ function SectionBlock({
   section,
   entries,
   notes,
+  onOpen,
 }: {
   section: VocabSection;
   entries: VocabEntry[];
   notes: VocabEntry[];
+  onOpen: (image: { src: string; caption: string }) => void;
 }) {
   return (
     <section
@@ -261,10 +333,11 @@ function SectionBlock({
           <p className="text-xs font-bold uppercase tracking-wider text-red-900">
             Nota prévia
           </p>
-          <dl className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-3">
+          <dl className="mt-3 grid grid-cols-1 gap-4 sm:grid-cols-3">
             {notes.map((note) => (
               <div key={note.term}>
-                <dt className="font-extrabold tracking-tight text-slate-950">
+                <Plate term={note.term} meaning={note.meaning} onOpen={onOpen} />
+                <dt className="mt-2 font-extrabold tracking-tight text-slate-950">
                   {note.term}
                 </dt>
                 <dd className="mt-0.5 text-sm leading-relaxed text-slate-700">
@@ -292,8 +365,9 @@ function SectionBlock({
           {entries.map((entry) => (
             <div
               key={entry.term}
-              className="grid grid-cols-1 gap-1 px-5 py-3.5 sm:grid-cols-[minmax(11rem,16rem)_1fr] sm:gap-6"
+              className="grid grid-cols-1 items-center gap-3 px-4 py-3.5 sm:grid-cols-[8.5rem_minmax(10rem,15rem)_1fr] sm:gap-5 sm:px-5"
             >
+              <Plate term={entry.term} meaning={entry.meaning} onOpen={onOpen} />
               <dt className="font-extrabold tracking-tight text-slate-950">
                 {entry.term}
               </dt>
