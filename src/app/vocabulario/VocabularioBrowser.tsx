@@ -1,8 +1,8 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import { BookOpen, Search, X } from "lucide-react";
+import { BookOpen, ChevronDown, Search, X } from "lucide-react";
 import { PrintButton } from "@/components/PrintButton";
 import {
   ATEMI_WAZA,
@@ -25,8 +25,16 @@ function matches(entry: VocabEntry, query: string) {
   return fold(entry.term).includes(query) || fold(entry.meaning).includes(query);
 }
 
+function illustrationDomId(term: string) {
+  const slug = fold(term)
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+  return `ilustracao-${slug || "termo"}`;
+}
+
 export function VocabularioBrowser() {
   const [query, setQuery] = useState("");
+  const [openTerm, setOpenTerm] = useState<string | null>(null);
   const [lightbox, setLightbox] = useState<{
     src: string;
     caption: string;
@@ -59,6 +67,24 @@ export function VocabularioBrowser() {
     (totalCount, item) => totalCount + item.entries.length + item.notes.length,
     0,
   );
+
+  useEffect(() => {
+    if (!openTerm && !lightbox) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+      if (lightbox) {
+        setLightbox(null);
+        return;
+      }
+      setOpenTerm(null);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [lightbox, openTerm]);
+
+  const toggleTerm = (term: string) => {
+    setOpenTerm((current) => (current === term ? null : term));
+  };
 
   return (
     <div className="min-h-screen bg-slate-100 text-slate-900 print:bg-white">
@@ -158,7 +184,10 @@ export function VocabularioBrowser() {
           <span className="sr-only">Procurar no vocabulário</span>
           <input
             value={query}
-            onChange={(event) => setQuery(event.target.value)}
+            onChange={(event) => {
+              setQuery(event.target.value);
+              setOpenTerm(null);
+            }}
             placeholder="Procurar termo, número ou expressão"
             className="w-full bg-transparent text-sm text-slate-900 outline-none placeholder:text-slate-400"
           />
@@ -221,6 +250,8 @@ export function VocabularioBrowser() {
             section={section}
             entries={entries}
             notes={notes}
+            openTerm={openTerm}
+            onToggle={toggleTerm}
             onOpen={setLightbox}
           />
         ))}
@@ -269,6 +300,36 @@ export function VocabularioBrowser() {
   );
 }
 
+function TermToggle({
+  term,
+  open,
+  onToggle,
+}: {
+  term: string;
+  open: boolean;
+  onToggle: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      aria-expanded={open}
+      aria-controls={illustrationDomId(term)}
+      onClick={onToggle}
+      title={open ? "Ocultar ilustração" : "Mostrar ilustração"}
+      className="flex w-full items-start gap-1.5 rounded-md text-left font-extrabold tracking-tight text-slate-950 outline-none transition-colors hover:text-red-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-700"
+    >
+      <span>{term}</span>
+      <ChevronDown
+        className={`mt-1 h-3.5 w-3.5 shrink-0 text-red-700 transition-transform print:hidden ${open ? "rotate-180" : ""}`}
+        aria-hidden
+      />
+      <span className="sr-only">
+        {open ? ", ocultar ilustração" : ", mostrar ilustração"}
+      </span>
+    </button>
+  );
+}
+
 function Plate({
   term,
   meaning,
@@ -285,15 +346,42 @@ function Plate({
     <button
       type="button"
       onClick={() => onOpen({ src, caption })}
-      className="group block w-full overflow-hidden rounded-lg border border-slate-200 bg-white print:border-slate-300"
+      aria-label={`Ampliar ilustração de ${term}`}
+      className="group block w-full max-w-xs overflow-hidden rounded-lg border border-slate-200 bg-white print:max-w-[8.5rem] print:border-slate-300"
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={src}
-        alt={caption}
-        className="h-28 w-full object-contain transition-transform duration-200 group-hover:scale-[1.03] sm:h-32"
+        alt=""
+        className="h-64 w-full object-contain transition-transform duration-200 group-hover:scale-[1.03] sm:h-72 print:h-28"
       />
     </button>
+  );
+}
+
+function IllustrationSlot({
+  term,
+  meaning,
+  open,
+  onOpen,
+}: {
+  term: string;
+  meaning: string;
+  open: boolean;
+  onOpen: (image: { src: string; caption: string }) => void;
+}) {
+  if (!vocabIllustration(term)) return null;
+  return (
+    <div
+      id={illustrationDomId(term)}
+      className={
+        open
+          ? "pt-2 sm:col-span-2"
+          : "hidden print:block print:pt-2 sm:col-span-2"
+      }
+    >
+      <Plate term={term} meaning={meaning} onOpen={onOpen} />
+    </div>
   );
 }
 
@@ -301,11 +389,15 @@ function SectionBlock({
   section,
   entries,
   notes,
+  openTerm,
+  onToggle,
   onOpen,
 }: {
   section: VocabSection;
   entries: VocabEntry[];
   notes: VocabEntry[];
+  openTerm: string | null;
+  onToggle: (term: string) => void;
   onOpen: (image: { src: string; caption: string }) => void;
 }) {
   return (
@@ -334,17 +426,39 @@ function SectionBlock({
             Nota prévia
           </p>
           <dl className="mt-3 grid grid-cols-1 gap-4 sm:grid-cols-3">
-            {notes.map((note) => (
-              <div key={note.term}>
-                <Plate term={note.term} meaning={note.meaning} onOpen={onOpen} />
-                <dt className="mt-2 font-extrabold tracking-tight text-slate-950">
-                  {note.term}
-                </dt>
-                <dd className="mt-0.5 text-sm leading-relaxed text-slate-700">
-                  {note.meaning}
-                </dd>
-              </div>
-            ))}
+            {notes.map((note) => {
+              const illustrated = Boolean(vocabIllustration(note.term));
+              const open = openTerm === note.term;
+              return (
+                <div
+                  key={note.term}
+                  className={open ? "rounded-lg bg-red-50/70 p-2" : undefined}
+                >
+                  <dt className="font-extrabold tracking-tight text-slate-950">
+                    {illustrated ? (
+                      <TermToggle
+                        term={note.term}
+                        open={open}
+                        onToggle={() => onToggle(note.term)}
+                      />
+                    ) : (
+                      note.term
+                    )}
+                  </dt>
+                  <dd className="mt-0.5 text-sm leading-relaxed text-slate-700">
+                    {note.meaning}
+                  </dd>
+                  {illustrated ? (
+                    <IllustrationSlot
+                      term={note.term}
+                      meaning={note.meaning}
+                      open={open}
+                      onOpen={onOpen}
+                    />
+                  ) : null}
+                </div>
+              );
+            })}
           </dl>
         </div>
       ) : null}
@@ -362,20 +476,39 @@ function SectionBlock({
         </ul>
       ) : (
         <dl className="divide-y divide-slate-100">
-          {entries.map((entry) => (
-            <div
-              key={entry.term}
-              className="grid grid-cols-1 items-center gap-3 px-4 py-3.5 sm:grid-cols-[8.5rem_minmax(10rem,15rem)_1fr] sm:gap-5 sm:px-5"
-            >
-              <Plate term={entry.term} meaning={entry.meaning} onOpen={onOpen} />
-              <dt className="font-extrabold tracking-tight text-slate-950">
-                {entry.term}
-              </dt>
-              <dd className="text-sm leading-relaxed text-slate-600">
-                {entry.meaning}
-              </dd>
-            </div>
-          ))}
+          {entries.map((entry) => {
+            const illustrated = Boolean(vocabIllustration(entry.term));
+            const open = openTerm === entry.term;
+            return (
+              <div
+                key={entry.term}
+                className={`grid grid-cols-1 items-center gap-x-5 gap-y-1 px-4 py-3.5 sm:grid-cols-[minmax(12rem,20rem)_1fr] sm:px-5 ${open ? "bg-red-50/60" : ""}`}
+              >
+                <dt className="font-extrabold tracking-tight text-slate-950">
+                  {illustrated ? (
+                    <TermToggle
+                      term={entry.term}
+                      open={open}
+                      onToggle={() => onToggle(entry.term)}
+                    />
+                  ) : (
+                    entry.term
+                  )}
+                </dt>
+                <dd className="text-sm leading-relaxed text-slate-600">
+                  {entry.meaning}
+                </dd>
+                {illustrated ? (
+                  <IllustrationSlot
+                    term={entry.term}
+                    meaning={entry.meaning}
+                    open={open}
+                    onOpen={onOpen}
+                  />
+                ) : null}
+              </div>
+            );
+          })}
         </dl>
       )}
     </section>
